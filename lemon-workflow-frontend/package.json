@@ -1,0 +1,51 @@
+{
+  "name": "lemon-workflow-frontend",
+  "version": "1.0.0",
+  "description": "A BPM Platform ",
+  "author": {
+    "name": "lyuxiaobo",
+    "email": "1335252861@qq.com"
+  },
+  "scripts": {
+    "dev": "npm run serve",
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "babel-polyfill": "^6.26.0",
+    "bpmn-js-token-simulation": "^0.10.0",
+    "core-js": "^3.15.2",
+    "diagram-js": "^7.3.0",
+    "element-ui": "^2.13.2",
+    "highlight.js": "^10.5.0",
+    "mavon-editor": "^1.8.0-0",
+    "min-dash": "^3.5.2",
+    "vue": "^2.6.11",
+    "vue-cropperjs": "^3.0.0",
+    "vue-i18n": "^8.10.0",
+    "vue-meta": "^2.4.0",
+    "vue-quill-editor": "^3.0.6",
+    "vue-router": "^3.4.9",
+    "vue-schart": "^2.0.0",
+    "vue-seamless-scroll": "^1.1.23",
+    "vuedraggable": "^2.17.0",
+    "xml-js": "^1.6.11"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "^3.3.1",
+    "@vue/compiler-sfc": "^3.0.1",
+    "bpmn-js": "^7.4.0",
+    "bpmn-js-properties-panel": "^0.37.2",
+    "camunda-bpmn-moddle": "^4.4.1",
+    "compression-webpack-plugin": "^6.1.1",
+    "fs-extra": "^8.1.0",
+    "nprogress": "^0.2.0",
+    "sass": "^1.30.0",
+    "sass-loader": "^8.0.2",
+    "terser-webpack-plugin": "^4.2.3",
+    "vue-template-compiler": "^2.6.11",
+    "webpack-bundle-analyzer": "^3.9.0"
+  }
+}
