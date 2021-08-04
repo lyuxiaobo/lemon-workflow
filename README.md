@@ -1,5 +1,3 @@
-<img src="./logo.jpeg" style="zoom:33%;" />
-
 # <center>lemon-workflow: A BPM platform</center>
 
 ## 项目简介
