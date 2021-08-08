@@ -24,9 +24,12 @@
             >
                 <el-table-column prop="processDefinitionId" label="流程定义编号" align="center" sortable></el-table-column>
                 <el-table-column prop="processDefinitionName" label="流程定义名称" align="center" sortable></el-table-column>
-                <el-table-column prop="name" label="实例名称" :formatter="formatInsNameField" align="center" sortable></el-table-column>
-                <el-table-column prop="suspended" label="是否挂起" :formatter="formatSuspendedField" align="center" sortable></el-table-column>
-                <el-table-column prop="startTime" label="发起时间" align="center" sortable></el-table-column>
+                <el-table-column prop="name" label="实例名称" :formatter="formatInsNameField" align="center"
+                                 sortable></el-table-column>
+                <el-table-column prop="suspended" label="是否挂起" :formatter="formatSuspendedField" align="center"
+                                 sortable></el-table-column>
+                <el-table-column prop="startTime" label="发起时间" align="center" sortable
+                                 :formatter="formatDate"></el-table-column>
                 <el-table-column label="操作" align="center">
                     <template slot-scope="scope">
                         <el-button
@@ -56,7 +59,7 @@
             <div class="pagination">
                 <el-pagination
                     background
-                    layout="total, sizes, prev, pager, next"
+                    layout="total, sizes, prev, pager, next, jumper"
                     :current-page="query.pageIndex"
                     :page-sizes="[5, 10, 20]"
                     :page-size="query.pageSize"
@@ -72,6 +75,7 @@
 
 <script>
 import { getAllProIns } from '@/api';
+import { formatDate } from '@/utils/formatDate';
 
 /**
  * 部署列表
@@ -145,6 +149,9 @@ export default {
         formatInsNameField(row, column, cellValue, index) {
             return cellValue == null ? '空' : cellValue;
         },
+        formatDate(row, column, cellValue, index) {
+            return formatDate(cellValue)
+        }
     },
     mounted() {
     }

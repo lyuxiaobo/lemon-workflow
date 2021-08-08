@@ -19,7 +19,7 @@
     "diagram-js": "^7.3.0",
     "element-ui": "^2.13.2",
     "highlight.js": "^10.5.0",
-    "mavon-editor": "^1.8.0-0",
+    "mavon-editor": "^2.9.1",
     "min-dash": "^3.5.2",
     "vue": "^2.6.11",
     "vue-cropperjs": "^3.0.0",
@@ -28,7 +28,6 @@
     "vue-quill-editor": "^3.0.6",
     "vue-router": "^3.4.9",
     "vue-schart": "^2.0.0",
-    "vue-seamless-scroll": "^1.1.23",
     "vuedraggable": "^2.17.0",
     "xml-js": "^1.6.11"
   },

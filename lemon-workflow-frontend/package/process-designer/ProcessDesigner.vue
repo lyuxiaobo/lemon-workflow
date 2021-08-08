@@ -187,8 +187,7 @@ export default {
             previewResult: '',
             previewType: 'xml',
             recoverable: false,
-            revocable: false,
-            diagram: ''
+            revocable: false
         };
     },
     computed: {
@@ -276,11 +275,14 @@ export default {
     methods: {
         // 以下为新加的方法
         getTheEditorSource() {
-            // 第一次为空时，这里有错误
-            getTheEditorSource(this.$route.query.modelId).then(res => {
-                this.diagram = res.toString();
-                this.createNewDiagram(res.toString());
-            });
+            // 判断是否含有流程文件；若有，则从服务器获取，若没有，则直接基于模板创建。
+            if (this.$route.query.isHaveSource === "true") {
+                getTheEditorSource(this.$route.query.modelId).then(res => {
+                    this.createNewDiagram(res.toString());
+                });
+            } else {
+                this.createNewDiagram(null);
+            }
         },
         /**
          * 保存流程
@@ -356,8 +358,8 @@ export default {
         /* 创建新的流程图 */
         async createNewDiagram(xml) {
             // 将字符串转换成图显示出来
-            let newId = this.processId || `Process_${new Date().getTime()}`;
-            let newName = this.processName || `业务流程_${new Date().getTime()}`;
+            let newId = this.$route.query.modelId || `Process_${new Date().getTime()}`;
+            let newName = this.$route.query.modelName || `业务流程_${new Date().getTime()}`;
             let xmlString = xml || DefaultEmptyXML(newId, newName, this.prefix);
             try {
                 let { warnings } = await this.bpmnModeler.importXML(xmlString);

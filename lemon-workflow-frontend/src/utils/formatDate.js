@@ -1,24 +1,32 @@
-// 这个函数 网上  随处可见，我也是应用了别人的。
-export function formatDate(date, fmt) {
-    if (/(y+)/.test(fmt)) {
-        fmt = fmt.replace(RegExp.$1, (date.getFullYear() + '').substr(4 - RegExp.$1.length));
-    }
-    let o = {
-        'M+': date.getMonth() + 1,
-        'd+': date.getDate(),
-        'h+': date.getHours(),
-        'm+': date.getMinutes(),
-        's+': date.getSeconds()
-    };
-    for (let k in o) {
-        if (new RegExp(`(${k})`).test(fmt)) {
-            let str = o[k] + '';
-            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length === 1) ? str : padLeftZero(str));
-        }
-    }
-    return fmt;
-};
+export function formatDate(cellValue) {
+    if (cellValue != null) {
+        let date = new Date(cellValue);
+        let year = date.getFullYear();       //年
+        let month = date.getMonth() + 1;     //月
+        let day = date.getDate();            //日
 
-function padLeftZero(str) {
-    return ('00' + str).substr(str.length);
-}
+        let hh = date.getHours();            //时
+        let mm = date.getMinutes();          //分
+
+        let clock = year + '-';
+
+        if (month < 10)
+            clock += '0';
+
+        clock += month + '-';
+
+        if (day < 10)
+            clock += '0';
+
+        clock += day + ' ';
+
+        if (hh < 10)
+            clock += '0';
+
+        clock += hh + ':';
+        if (mm < 10) clock += '0';
+        clock += mm;
+
+        return (clock);
+    }
+};

@@ -67,7 +67,7 @@ export default new Router({
                     meta: {
                         title: '表格'
                     },
-                    component: () => import ('../components/views/BaseTable')
+                    component: () => import ('../components/page/BaseTable')
                 }, {
                     path: '/charts',
                     name: 'basecharts',
@@ -76,7 +76,7 @@ export default new Router({
                     },
                     component: () => import (
                         /* webpackChunkName: "charts" */
-                        '../components/views/BaseCharts.vue')
+                        '../components/page/BaseCharts.vue')
                 }, {
                     path: '/demo/form',
                     name: 'baseform',
@@ -85,7 +85,7 @@ export default new Router({
                     },
                     component: () => import (
                         /* webpackChunkName: "form" */
-                        '../components/views/BaseForm.vue')
+                        '../components/page/BaseForm.vue')
                 }, {
                     path: '/demo/tabs',
                     name: 'tabs',
@@ -94,7 +94,7 @@ export default new Router({
                     },
                     component: () => import (
                         /* webpackChunkName: "tabs" */
-                        '../components/views/Tabs.vue')
+                        '../components/page/Tabs.vue')
                 }, {
                     path: '/donate',
                     name: 'donate',
@@ -103,8 +103,33 @@ export default new Router({
                     },
                     component: () => import (
                         /* webpackChunkName: "donate" */
-                        '../components/views/Donate.vue')
-                }, {
+                        '../components/page/Donate.vue')
+                },
+                {
+                    // 富文本编辑器组件
+                    path: '/demo/editor',
+                    component: () => import(/* webpackChunkName: "editor" */ '../components/page/VueEditor.vue'),
+                    meta: { title: '富文本编辑器' }
+                },
+                {
+                    // markdown组件
+                    path: '/demo/markdown',
+                    component: () => import(/* webpackChunkName: "markdown" */ '../components/page/Markdown.vue'),
+                    meta: { title: 'markdown编辑器' }
+                },
+                {
+                    // 拖拽列表组件
+                    path: '/demo/drag',
+                    component: () => import(/* webpackChunkName: "drag" */ '../components/page/DragList.vue'),
+                    meta: { title: '拖拽列表' }
+                },
+                {
+                    // 拖拽Dialog组件
+                    path: '/demo/dialog',
+                    component: () => import(/* webpackChunkName: "dragdialog" */ '../components/page/DragDialog.vue'),
+                    meta: { title: '拖拽弹框' }
+                },
+                {
                     path: '/demo/permission',
                     name: 'permission',
                     meta: {
@@ -113,7 +138,7 @@ export default new Router({
                     },
                     component: () => import (
                         /* webpackChunkName: "permission" */
-                        '../components/views/Permission.vue')
+                        '../components/page/Permission.vue')
                 }, {
                     path: '/demo/i18n',
                     name: 'i18n',
@@ -122,7 +147,7 @@ export default new Router({
                     },
                     component: () => import (
                         /* webpackChunkName: "i18n" */
-                        '../components/views/I18n.vue')
+                        '../components/page/I18n.vue')
                 }, {
                     path: '/upload',
                     name: 'upload',
@@ -131,7 +156,7 @@ export default new Router({
                     },
                     component: () => import (
                         /* webpackChunkName: "upload" */
-                        '../components/views/Upload.vue')
+                        '../components/page/Upload.vue')
                 }, {
                     path: '/demo/icon',
                     name: 'icon',
@@ -140,7 +165,7 @@ export default new Router({
                     },
                     component: () => import (
                         /* webpackChunkName: "icon" */
-                        '../components/views/Icon.vue')
+                        '../components/page/Icon.vue')
                 },
                 // 其他界面
                 {

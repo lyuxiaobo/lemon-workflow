@@ -26,7 +26,8 @@
                 <el-table-column prop="processDefinitionId" label="流程定义" align="center" sortable></el-table-column>
                 <el-table-column prop="processInstanceId" label="流程实例" align="center" sortable></el-table-column>
                 <el-table-column prop="name" label="任务名称" align="center" sortable></el-table-column>
-                <el-table-column prop="createTime" label="开始时间" align="center" sortable></el-table-column>
+                <el-table-column prop="createTime" label="开始时间" align="center" sortable
+                                 :formatter="formatDate"></el-table-column>
                 <el-table-column label="操作" align="center">
                     <template slot-scope="scope">
                         <el-button
@@ -56,7 +57,7 @@
             <div class="pagination">
                 <el-pagination
                     background
-                    layout="total, sizes, prev, pager, next"
+                    layout="total, sizes, prev, pager, next, jumper"
                     :current-page="query.pageIndex"
                     :page-sizes="[5, 10, 20]"
                     :page-size="query.pageSize"
@@ -71,6 +72,7 @@
 
 <script>
 import { completeTask, getTasks } from '@/api';
+import { formatDate } from '@/utils/formatDate';
 
 /**
  * 已完成任务列表
@@ -95,7 +97,7 @@ export default {
             editForm: {},
             pageTotal: 0,
             taskRequestBody: {
-                action : "complete"
+                action: 'complete'
             }
         };
     },
@@ -134,7 +136,7 @@ export default {
         // 分页导航
         handlePageChange(val) {
             this.$set(this.query, 'pageIndex', val);
-            this.$set(this.query, 'start', 10 * (val - 1));
+            this.$set(this.query, 'start', this.query.pageSize * (val - 1));
             this.getData();
         },
         // 每页数量设置
@@ -142,6 +144,9 @@ export default {
             this.$set(this.query, 'pageSize', val);
             this.$set(this.query, 'pageIndex', 1);
             this.getData();
+        },
+        formatDate(row, column, cellValue, index) {
+            return formatDate(cellValue)
         }
     },
     mounted() {

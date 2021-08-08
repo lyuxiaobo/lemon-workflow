@@ -89,10 +89,8 @@ class EngineApplicationTests {
     void deleteAllDeployFile() {
         List<ProcessDefinition> list = repositoryService.createProcessDefinitionQuery().list();
         for (ProcessDefinition processDefinition:  list) {
-            // TODO 判断historyProcess表中是否还有根据当前部署启动的应用 若无则删除部署中的task的合同和需求文档
             repositoryService.deleteDeployment(processDefinition.getId());
         }
-//        fileTransferExecutor.deleteDirectory("application");
     }
 
     /**

@@ -26,10 +26,9 @@
 **后端：lemon-workflow-backend**
 
 - 建立lemon_workflow数据库，指定字符集为utf-8
-
-- 运行
-
-- 测试接口：http://localhost:8081/process-api/repository/process-definitions. [点击](https://flowable.com/open-source/docs/bpmn/ch15-REST/)参考更多Flowable提供的REST API
+- 运行src/test/java/com/lemon/engine/EngineApplicationTests.java下的addAllUser()方法，添加测试用户
+- 运行EngineApplication主程序
+- 测试接口：http://localhost:8081/process-api/repository/process-definitions. （[点击](https://flowable.com/open-source/docs/bpmn/ch15-REST/)参考更多Flowable提供的REST API）
 
 **前端：lemon-workflow-frontend**
 

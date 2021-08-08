@@ -18,7 +18,8 @@
                 <!--                <el-table-column type="selection" width="55" align="center"></el-table-column>-->
                 <el-table-column prop="id" label="ID" align="center" width="300"></el-table-column>
                 <el-table-column prop="name" label="名称" align="center" sortable></el-table-column>
-                <el-table-column prop="deploymentTime" label="部署时间" align="center" sortable></el-table-column>
+                <el-table-column prop="deploymentTime" label="部署时间" align="center" sortable
+                                 :formatter="formatDate"></el-table-column>
                 <el-table-column prop="category" label="分类" align="center" sortable></el-table-column>
                 <el-table-column prop="tenantId" label="租户" align="center" sortable></el-table-column>
                 <el-table-column label="操作" align="center">
@@ -36,7 +37,7 @@
             <div class="pagination">
                 <el-pagination
                     background
-                    layout="total, sizes, prev, pager, next"
+                    layout="total, sizes, prev, pager, next, jumper"
                     :current-page="query.pageIndex"
                     :page-sizes="[5, 10, 20]"
                     :page-size="query.pageSize"
@@ -62,6 +63,7 @@
 
 <script>
 import { deleteOneDeployment, getAllDeployments } from '@/api';
+import { formatDate } from '@/utils/formatDate';
 
 /**
  * 部署列表
@@ -121,6 +123,9 @@ export default {
             this.$set(this.query, 'pageSize', val);
             this.$set(this.query, 'pageIndex', 1);
             this.getData();
+        },
+        formatDate(row, column, cellValue, index) {
+            return formatDate(cellValue)
         }
     },
     mounted() {

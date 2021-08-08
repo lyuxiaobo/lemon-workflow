@@ -62,7 +62,7 @@
             <div class="pagination">
                 <el-pagination
                     background
-                    layout="total, sizes, prev, pager, next"
+                    layout="total, sizes, prev, pager, next, jumper"
                     :current-page="query.pageIndex"
                     :page-sizes="[5, 10, 20]"
                     :page-size="query.pageSize"
@@ -117,9 +117,6 @@ export default {
             });
         },
         //格式化字段
-        formatSuspendedField(row, column, cellValue, index) {
-            return cellValue ? '是' : '否';
-        },
         formatVersionField(row, column, cellValue, index) {
             return 'v' + cellValue;
         },

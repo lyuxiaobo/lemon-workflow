@@ -127,24 +127,19 @@ export default {
                             index: '/demo/form',
                             title: '基本表单'
                         },
-                        /*{
+                        {
                             index: '/demo/editor',
                             title: '富文本编辑器'
                         },
                         {
                             index: '/demo/markdown',
                             title: 'markdown编辑器'
-                        },*/
+                        },
 
                         {
                             icon: 'el-icon-lx-emoji',
                             index: '/demo/icon',
                             title: '自定义图标'
-                        },
-                        /*{
-                            icon: 'el-icon-pie-chart',
-                            index: '/demo/charts',
-                            title: 'schart图表'
                         },
                         {
                             index: '/demo/drag',
@@ -153,7 +148,7 @@ export default {
                         {
                             index: '/demo/dialog',
                             title: '拖拽弹框'
-                        },*/
+                        },
                         {
                             icon: 'el-icon-lx-global',
                             index: '/demo/i18n',

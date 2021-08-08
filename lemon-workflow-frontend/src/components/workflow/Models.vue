@@ -24,7 +24,8 @@
                 <el-table-column prop="name" label="模型名称" align="center" width="300"></el-table-column>
                 <el-table-column prop="category" label="目录" align="center" sortable></el-table-column>
                 <el-table-column prop="version" label="版本" align="center" sortable></el-table-column>
-                <el-table-column prop="createTime" label="创建时间" align="center" sortable></el-table-column>
+                <el-table-column prop="createTime" label="创建时间" align="center" sortable
+                                 :formatter="formatDate"></el-table-column>
                 <el-table-column label="操作" align="center">
                     <template slot-scope="scope">
                         <el-button
@@ -54,7 +55,7 @@
             <div class="pagination">
                 <el-pagination
                     background
-                    layout="total, sizes, prev, pager, next"
+                    layout="total, sizes, prev, pager, next, jumper"
                     :current-page="query.pageIndex"
                     :page-sizes="[5, 10, 20]"
                     :page-size="query.pageSize"
@@ -90,6 +91,7 @@
 
 <script>
 import { addModel, createDeployment, deleteModel, getAllModels, getTheEditorSource } from '@/api';
+import { formatDate } from '@/utils/formatDate';
 
 /**
  * 部署列表
@@ -185,7 +187,8 @@ export default {
                 path: '/workflow/design',
                 query: {
                     modelId: row.id,
-                    modelName: row.name
+                    modelName: row.name,
+                    isHaveSource: row.sourceUrl === null ? false : true
                 }
             });
 
@@ -216,6 +219,9 @@ export default {
             this.$set(this.query, 'pageSize', val);
             this.$set(this.query, 'pageIndex', 1);
             this.getData();
+        },
+        formatDate(row, column, cellValue, index) {
+            return formatDate(cellValue)
         }
     },
     mounted() {

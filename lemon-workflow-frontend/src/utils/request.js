@@ -1,14 +1,11 @@
 import axios from 'axios';
 // 导入 NProgress 包对应的JS
 import NProgress from 'nprogress'
-// 这里把IP单独导入是为了可以在vue文件也可以引入
-import baseURL from './ip'
 
 const service = axios.create({
     //process.env.NODE_ENV === 'development' 来判断是否开发环境
 
-    baseURL: baseURL,
-    // baseURL: 'http://10.5.83.149:8083',
+    baseURL: 'http://localhost:8081',
     timeout: 10000
 });
 
