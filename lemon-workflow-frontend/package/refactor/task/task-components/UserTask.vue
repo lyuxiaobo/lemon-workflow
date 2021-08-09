@@ -2,7 +2,7 @@
   <div style="margin-top: 16px">
     <el-form-item label="任务代理人">
       <el-select v-model="userTaskForm.assignee" @change="updateElementTask('assignee')">
-        <el-option v-for="(ak, index) in mockData" :key="'ass-' + index" :label="`${ak}`" :value="`${ak}`" />
+        <el-option v-for="item in asigneeData" :key="item.id" :label="item.firstName" :value="item.firstName" />
       </el-select>
     </el-form-item>
     <el-form-item label="任务持有人">
@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import { getAllUsers } from '@/api';
+
 export default {
   name: "UserTask",
   props: {
@@ -51,7 +53,8 @@ export default {
         priority: ""
       },
       userTaskForm: {},
-      mockData: ["admin", "admin1", "admin2"]
+      mockData: ["admin", "admin1", "admin2"],
+        asigneeData: []
     };
   },
   watch: {
@@ -63,7 +66,13 @@ export default {
       }
     }
   },
-  methods: {
+    mounted() {
+      getAllUsers(10, 0).then(res => {
+          this.asigneeData = res.data;
+
+      });
+    },
+    methods: {
     resetTaskForm() {
       for (let key in this.defaultTaskForm) {
         let value;

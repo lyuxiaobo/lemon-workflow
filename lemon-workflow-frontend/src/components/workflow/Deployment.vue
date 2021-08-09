@@ -97,12 +97,12 @@ export default {
         getData() {
             getAllDeployments(this.query.pageSize, this.query.start).then(res => {
                 this.tableData = res.data;
-                this.pageTotal = res.total || 10;
+                this.pageTotal = res.total;
             }).catch(error => {
                 console.log(error);
             });
         },
-        // 删除
+        // 删除。如果此部署bpmn文件有正在运行的实例，则删除报错。待修复
         deleteDeployment(deploymentId) {
             deleteOneDeployment(deploymentId).then(res => {
                 this.$message.error('已删除');

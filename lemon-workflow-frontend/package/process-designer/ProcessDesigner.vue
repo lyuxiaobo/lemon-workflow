@@ -273,7 +273,6 @@ export default {
         });
     },
     methods: {
-        // 以下为新加的方法
         getTheEditorSource() {
             // 判断是否含有流程文件；若有，则从服务器获取，若没有，则直接基于模板创建。
             if (this.$route.query.isHaveSource === "true") {

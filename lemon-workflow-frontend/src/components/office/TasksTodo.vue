@@ -109,7 +109,7 @@ export default {
         getData() {
             getTasks(this.query.pageSize, this.query.start, localStorage.getItem('ms_username')).then(res => {
                 this.tableData = res.data;
-                this.pageTotal = res.total || 10;
+                this.pageTotal = res.total;
             }).catch(error => {
                 console.log(error);
             });

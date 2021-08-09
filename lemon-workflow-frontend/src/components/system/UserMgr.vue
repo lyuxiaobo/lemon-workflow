@@ -52,7 +52,7 @@
 
             <!-- 弹出框 -->
             <el-dialog title="添加用户" :visible.sync="addDataVisible" width="30%">
-                <el-form :model="userForm" :rules="rules" label-position="top" ref="userForm">
+                <el-form :model="userForm" :rules="rules" label-width="100px" ref="userForm">
                     <el-form-item
                         label="用户名称"
                         prop="firstName"
@@ -71,6 +71,25 @@
                     >
                         <el-input v-model="userForm.password"></el-input>
                     </el-form-item>
+                    <el-form-item
+                        label="所属用户组"
+                        prop="groups"
+                    >
+                        <el-select v-model="selectGroupValue"
+                                   multiple
+                                   filterable
+                                   allow-create
+                                   default-first-option
+                                   placeholder="请选择">
+                            <el-option
+                                v-for="item in groupOptions"
+                                :key="item.id"
+                                :label="item.name"
+                                :value="item.id">
+                            </el-option>
+                        </el-select>
+                    </el-form-item>
+
                 </el-form>
                 <span slot="footer" class="dialog-footer">
                     <el-button type="primary" @click="addData()">保存表单</el-button>
@@ -101,7 +120,7 @@
 <script>
 
 
-import { addUser, deleteOneUser, getAllUsers, getOneUser, searchOneUser } from '@/api';
+import { addMemberToGroup, addUser, deleteOneUser, getAllGroups, getAllUsers, getOneUser, searchOneUser } from '@/api';
 import bus from '@/components/common/bus';
 
 export default {
@@ -142,11 +161,14 @@ export default {
                 password: [
                     { required: true, message: '请输入用户密码', trigger: 'blur' }
                 ]
-            }
+            },
+            groupOptions: [],
+            selectGroupValue: []
         };
     },
     created() {
         this.getData();
+        this.getAllGroups();
     },
     mounted() {
         bus.$on('getProDefData', this.getData);
@@ -157,6 +179,11 @@ export default {
             getAllUsers(this.pageInfo.pageSize, this.pageInfo.start).then(res => {
                 this.tableData = res.data;
                 this.pageInfo.total = res.total;
+            });
+        },
+        getAllGroups() {
+            getAllGroups(this.pageInfo.pageSize, this.pageInfo.start).then(res => {
+                this.groupOptions = res.data;
             });
         },
         // 搜索
@@ -192,12 +219,20 @@ export default {
         addData() {
             this.$refs['userForm'].validate((valid) => {
                 if (valid) {
-                    this.userForm.id = this.guid();
+                    this.userForm.id = this.generateUUID();
                     addUser(this.userForm).then(res => {
                         this.$message.success('添加成功');
                         this.getData();
                         this.addDataVisible = false;
                     });
+                    for (let i = 0; i < this.selectGroupValue.length; i++) {
+                        let user = {
+                            userId: this.userForm.id
+                        };
+                        addMemberToGroup(this.selectGroupValue[i], user).then(res => {
+
+                        });
+                    }
                 }
             });
         },

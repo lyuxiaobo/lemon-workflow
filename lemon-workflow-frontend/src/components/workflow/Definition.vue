@@ -127,7 +127,7 @@ export default {
             } else {
                 searchDefs(this.query.pageSize, this.query.start, this.query.name).then(res => {
                     this.tableData = res.data;
-                    this.pageTotal = res.total || 10;
+                    this.pageTotal = res.total;
                 }).catch(error => {
                     console.log(error);
                 });

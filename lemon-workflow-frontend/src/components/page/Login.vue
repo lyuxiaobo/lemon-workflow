@@ -52,8 +52,6 @@ export default {
             this.$refs.login.validate(async (valid) => {
                 if (valid) {
                     requestLogin('?name=' + this.param.name + '&password=' + this.param.password).then(res => {
-                        console.log('login');
-                        console.log(res);
                         if (res.code == 200) {
                             this.$message.success('登录成功');
                             localStorage.setItem('ms_username', this.param.name);

@@ -27,6 +27,11 @@ export default new Router({
                     meta: { title: '用户管理' }
                 },
                 {
+                    path: '/system/group-mgr',
+                    component: () => import( '../components/system/GroupMgr'),
+                    meta: { title: '用户组管理' }
+                },
+                {
                     path: '/office/done',
                     component: () => import( '../components/office/TasksDone'),
                     meta: { title: '已办任务' }

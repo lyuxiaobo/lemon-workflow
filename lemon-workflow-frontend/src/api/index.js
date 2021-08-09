@@ -58,6 +58,58 @@ export const deleteOneUser = (userId) => {
         method: 'delete'
     });
 };
+
+// 用户组管理
+export const addGroup = (params) => {
+    return request({
+        url: `/process-api/identity/groups`,
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data: params
+    });
+};
+export const getAllGroups = (size, start) => {
+    return request({
+        url: `/process-api/identity/groups?&size=${size}&start=${start}`,
+        method: 'get'
+    });
+};
+export const searchOneGroup = (groupId) => {
+    return request({
+        url: `/process-api/identity/group/${groupId}`,
+        method: 'get'
+    });
+};
+export const deleteOneGroup = (groupId) => {
+    return request({
+        url: `/process-api/identity/groups/${groupId}`,
+        method: 'delete'
+    });
+};
+export const updateGroup = (groupId, params) => {
+    return request({
+        url: `/process-api/identity/groups/${groupId}`,
+        method: 'put',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data: params
+    });
+};
+// Add a member to a group
+export const addMemberToGroup = (groupId, params) => {
+    return request({
+        url: `/process-api/identity/groups/${groupId}/members`,
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        data: params
+    });
+};
+
 // //////////////////////////////////////////////////
 // 我的办公
 // 代办任务
@@ -81,7 +133,7 @@ export const completeTask = (taskId, taskRequestBody) => {
 // 已完成任务，根据历史任务中的durationInMillis来判断（或者结束时间）
 export const getHistoryTasks = (size, start, assignee) => {
     return request({
-        url: `/process-api/history/historic-task-instances?assignee=${assignee}&size=${size}&start=${start}`,
+        url: `/process-api/history/historic-task-instances?assignee=${assignee}&size=${size}&start=${start}&finished=true`,
         method: 'get'
     });
 };

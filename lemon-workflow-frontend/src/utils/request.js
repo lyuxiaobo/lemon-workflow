@@ -5,7 +5,7 @@ import NProgress from 'nprogress'
 const service = axios.create({
     //process.env.NODE_ENV === 'development' 来判断是否开发环境
 
-    baseURL: 'http://localhost:8081',
+    baseURL: 'http://192.168.1.108:8081',
     timeout: 10000
 });
 

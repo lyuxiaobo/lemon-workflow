@@ -69,6 +69,10 @@ export default {
                         {
                             'index': '/system/user-mgr',
                             'title': '用户管理'
+                        },
+                        {
+                            'index': '/system/group-mgr',
+                            'title': '用户组管理'
                         }
                     ]
                 },
