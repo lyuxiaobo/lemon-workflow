@@ -2,9 +2,7 @@
 
 ## 项目简介
 
-:lemon:lemon-workflow是一个基于Flowable(V6)引擎的BPM平台，采用前后端分离架构。目前已经集成了流程设计、工作流管理、统计分析等业务中常用的功能。
-
-<img src="./show.gif" style="zoom:50%;" />
+:lemon:lemon-workflow是一个基于Flowable(V6)引擎的BPM平台，采用前后端分离架构，已适配Android移动端。目前已经集成了流程设计、工作流管理、统计分析等业务中常用的功能，但目前功能还较少，只限学习交流。
 
 技术栈如下：
 
@@ -14,10 +12,19 @@
 
 欢迎issues、PR~~ 如果此项目对你有所帮助，麻烦动动小手给个Star⭐
 
+## 项目截图
+
+<img src="./img/web_screen_1.png" style="zoom:50%;" />
+<img src="./img/web_screen_2.png" style="zoom:50%;" />
+<img src="./img/android_screen_1.png" style="zoom:20%;" /><img src="./img/android_screen_2.png" style="zoom:20%;" />
+
+
+
 ## 项目特性
 
 - 基于Flowable6开发的业务流程管理平台，有着更加完善的功能
 - 集成了基于bpmn-js的流程设计器，对Web设计更友好
+- 支持Android移动端，共享数据接口
 - 支持Docker部署
 - 更多功能正在开发中……
 
@@ -38,6 +45,10 @@ npm install
 # 运行
 npm run serve
 ```
+
+**Android端：lemonworkflowandroid**
+
+Android Studio直接运行即可
 
 ## TODO
 
