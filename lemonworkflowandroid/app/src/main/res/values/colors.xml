@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#409EFF</color>
+    <color name="purple_500">#409EFF</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="defaultDividerLine">#E0E0E0</color>  //默认分割线颜色
+    <color name="transparent">#00000000</color>
+    <color name="main_red">#FF5F55</color>
+
+    <color name="defaultTextview">#424242</color>  //默认文字的颜色
+    <color name="emphasisTextview">#292929</color>  //默认重点强调文字颜色
+    <color name="color_8c8c8c">#8c8c8c</color>
+    <color name="btn3">#409EFF</color>
+    <color name="btn6">#80b7f9</color>
+
+
+    <color name="primary">#409EFF</color>
+    <color name="regular_txt">#606266</color>
+</resources>

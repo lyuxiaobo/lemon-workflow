@@ -17,4 +17,6 @@ public class LoginVO {
     private String groupName;
     private String userName;
     private String displayName;
+
+
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#ffffff">
+
+        <RadioGroup
+            android:id="@+id/rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_home"
+                style="@style/main_tab_button"
+                android:drawableTop="@drawable/rgbtn_home_select"
+                android:text="任务"/>
+            <RadioButton
+                android:id="@+id/rb_statistic"
+                style="@style/main_tab_button"
+                android:drawableTop="@drawable/rgbtn_statistic_select"
+                android:text="统计"/>
+            <RadioButton
+                android:id="@+id/rb_my"
+                style="@style/main_tab_button"
+                android:drawableTop="@drawable/rgbtn_my_select"
+                android:text="我"/>
+
+        </RadioGroup>
+        <View
+            style="@style/Line_e0e0e0_Horizontal"/>
+    </RelativeLayout>
+    <FrameLayout
+        android:id="@+id/fl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl"
+        ></FrameLayout>
+</RelativeLayout>
