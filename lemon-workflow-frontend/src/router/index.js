@@ -66,6 +66,12 @@ export default new Router({
                     component: () => import( '../components/workflow/Instance'),
                     meta: { title: '实例' }
                 },
+
+                {
+                    path: '/form/design',
+                    component: () => import( '../components/workflow/Form'),
+                    meta: { title: '表单设计' }
+                },
                 {
                     path: '/demo/table',
                     name: 'basetable',
@@ -154,13 +160,13 @@ export default new Router({
                         /* webpackChunkName: "i18n" */
                         '../components/page/I18n.vue')
                 }, {
-                    path: '/upload',
+                    path: '/Upload',
                     name: 'upload',
                     meta: {
                         title: '上传插件'
                     },
                     component: () => import (
-                        /* webpackChunkName: "upload" */
+                        /* webpackChunkName: "Upload" */
                         '../components/page/Upload.vue')
                 }, {
                     path: '/demo/icon',

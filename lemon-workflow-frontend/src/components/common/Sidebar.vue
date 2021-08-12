@@ -115,6 +115,17 @@ export default {
                     ]
                 },
                 {
+                    'icon': 'el-icon-s-order',
+                    'index': 'form',
+                    'title': '表单管理',
+                    'subs': [
+                        {
+                            'index': '/form/design',
+                            'title': '表单设计'
+                        }
+                    ]
+                },
+                {
                     'icon': 'el-icon-lx-cascades',
                     'index': 'demo',
                     'title': '模板实例',

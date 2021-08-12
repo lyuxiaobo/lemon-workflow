@@ -126,7 +126,7 @@ a {
 /*    height: 45px;*/
 /*}*/
 
-/*.el-upload--text {*/
+/*.el-Upload--text {*/
 /*    background-color: #fff;*/
 /*    border: 1px dashed #d9d9d9;*/
 /*    border-radius: 6px;*/
@@ -139,20 +139,20 @@ a {
 /*    overflow: hidden;*/
 /*}*/
 
-/*.el-upload--text .el-icon-upload {*/
+/*.el-Upload--text .el-icon-Upload {*/
 /*    font-size: 67px;*/
 /*    color: #97a8be;*/
 /*    margin: 40px 0 16px;*/
 /*    line-height: 50px;*/
 /*}*/
 
-/*.el-upload--text {*/
+/*.el-Upload--text {*/
 /*    color: #97a8be;*/
 /*    font-size: 14px;*/
 /*    text-align: center;*/
 /*}*/
 
-/*.el-upload--text em {*/
+/*.el-Upload--text em {*/
 /*    font-style: normal;*/
 /*}*/
 

@@ -12,7 +12,7 @@
             <span>{{$t('i18n.tips')}}</span>
             <el-button
                 type="primary"
-                @click="$i18n.locale = $i18n.locale === 'zh-cn'?'en':'zh-cn';"
+                @click="$i18n.locale = $i18n.locale === 'zh'?'en':'zh';"
             >{{$t('i18n.btn')}}</el-button>
             <div class="list">
                 <h2>{{$t('i18n.title1')}}</h2>
