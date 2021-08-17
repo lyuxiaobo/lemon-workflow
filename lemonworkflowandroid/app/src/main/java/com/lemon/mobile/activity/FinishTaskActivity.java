@@ -12,13 +12,14 @@ import com.lemon.mobile.util.UrlFactory;
 
 /**
  * 完成待办任务
- * @author Administrator
  *
+ * @author Administrator
  */
 public class FinishTaskActivity extends BaseActivity {
     private static final String TAG = "FinishTaskActivity";
     private Button finishTask;
     private String taskId;
+
     @Override
     public int getContentViewResource() {
         return R.layout.activity_finish_task;
@@ -32,7 +33,7 @@ public class FinishTaskActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-         taskId = getIntent().getStringExtra("taskId");
+        taskId = getIntent().getStringExtra("taskId");
     }
 
     @Override
@@ -41,23 +42,23 @@ public class FinishTaskActivity extends BaseActivity {
             FinishTaskRequestBean finishTaskRequestBean = new FinishTaskRequestBean();
             finishTaskRequestBean.setAction("complete");
             String s = GsonUtils.toJson(finishTaskRequestBean);
-            okPostRequest("finish", UrlFactory.BaseUrl + "/process-api/runtime/tasks/" + taskId,s, null, "正在完成……", true);
+            okPostRequest("finish", UrlFactory.BaseUrl + "/process-api/runtime/tasks/" + taskId, s, null, "正在完成……", true);
         });
     }
 
     @Override
     protected void okResponseSuccess(String whit, Object t) {
         super.okResponseSuccess(whit, t);
-        if (!TextUtils.equals(whit,"finish")) {
+        if (!TextUtils.equals(whit, "finish")) {
             return;
         }
-        try{
+        try {
             Integer datas = (Integer) t;
             if (datas == 200) {
                 ToastUtils.showCenterToast(mContext, "已完成任务");
                 finish();
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.fillInStackTrace();
         }
     }

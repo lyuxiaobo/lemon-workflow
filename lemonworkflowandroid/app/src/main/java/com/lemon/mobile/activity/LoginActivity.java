@@ -19,6 +19,7 @@ public class LoginActivity extends BaseActivity {
     private Button login;
     private EditText name;
     private EditText password;
+
     @Override
     public int getContentViewResource() {
         return R.layout.activity_login;
@@ -26,9 +27,10 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initView() {
+
         login = findViewById(R.id.btn_login);
         name = findViewById(R.id.et_name);
-        password= findViewById(R.id.et_password);
+        password = findViewById(R.id.et_password);
         mImmersionBar.titleBar(R.id.toolbar).keyboardEnable(true).init();
         login.setOnClickListener(v -> {
             HttpParams httpParams = new HttpParams();
@@ -53,19 +55,19 @@ public class LoginActivity extends BaseActivity {
     protected void okResponseSuccess(String whit, Object t) {
         super.okResponseSuccess(whit, t);
 
-        if (!TextUtils.equals(whit,"login")) {
+        if (!TextUtils.equals(whit, "login")) {
             return;
         }
-        try{
+        try {
             LoginResultBean datas = (LoginResultBean) t;
             if (datas.getCode() == 200) {
                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 finish();
                 SPUtils.put(mContext, "username", datas.getData().getUserName());
-            }else {
+            } else {
                 ToastUtils.showCenterToast(mContext, datas.getMsg());
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             e.fillInStackTrace();
         }
 

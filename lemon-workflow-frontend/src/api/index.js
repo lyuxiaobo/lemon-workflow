@@ -142,9 +142,9 @@ export const getHistoryTasks = (size, start, assignee) => {
 // //////////////////////////////////////////////////
 // 工作流管理
 // 模型
-export const getAllModels = (size, start) => {
+export const getAllModels = (size, start, category) => {
     return request({
-        url: `/process-api/repository/models?&size=${size}&start=${start}`,
+        url: `/process-api/repository/models?&size=${size}&start=${start}&category=${category}`,
         method: 'get'
     });
 };

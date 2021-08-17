@@ -43,12 +43,12 @@ export default new Router({
                 },
                 {
                     path: '/workflow/models',
-                    component: () => import( '../components/workflow/Models'),
+                    component: () => import( '../components/workflow/Process'),
                     meta: { title: '模型' }
                 },
                 {
                     path: '/workflow/design',
-                    component: () => import( '../components/workflow/ModelDesign'),
+                    component: () => import( '../components/workflow/ProcessModelDesign'),
                     meta: { title: '模型设计' }
                 },
                 {
@@ -68,8 +68,13 @@ export default new Router({
                 },
 
                 {
+                    path: '/form/overview',
+                    component: () => import( '../components/workflow/Forms'),
+                    meta: { title: '表单' }
+                },
+                {
                     path: '/form/design',
-                    component: () => import( '../components/workflow/Form'),
+                    component: () => import( '../components/workflow/FormDesigner'),
                     meta: { title: '表单设计' }
                 },
                 {
@@ -150,16 +155,8 @@ export default new Router({
                     component: () => import (
                         /* webpackChunkName: "permission" */
                         '../components/page/Permission.vue')
-                }, {
-                    path: '/demo/i18n',
-                    name: 'i18n',
-                    meta: {
-                        title: '国际化语言'
-                    },
-                    component: () => import (
-                        /* webpackChunkName: "i18n" */
-                        '../components/page/I18n.vue')
-                }, {
+                },
+                {
                     path: '/Upload',
                     name: 'upload',
                     meta: {

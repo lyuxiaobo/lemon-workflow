@@ -79,7 +79,8 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
-    background-image: url(../../assets/img/login-bg.jpg);
+    background-color: #11a1fd;
+    background-image: url(../../assets/img/login-bg.png);
     background-size: 100%;
 }
 
@@ -88,7 +89,7 @@ export default {
     line-height: 50px;
     text-align: center;
     font-size: 20px;
-    color: #fff;
+    color: #333333;
     border-bottom: 1px solid #ddd;
 }
 
@@ -99,7 +100,7 @@ export default {
     width: 350px;
     margin: -190px 0 0 -175px;
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.3);
+    background: white;
     overflow: hidden;
 }
 
@@ -120,6 +121,6 @@ export default {
 .login-tips {
     font-size: 12px;
     line-height: 30px;
-    color: #fff;
+    color: #333333;
 }
 </style>

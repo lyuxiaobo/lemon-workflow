@@ -120,8 +120,8 @@ export default {
                     'title': '表单管理',
                     'subs': [
                         {
-                            'index': '/form/design',
-                            'title': '表单设计'
+                            'index': '/form/overview',
+                            'title': '表单'
                         }
                     ]
                 },
@@ -163,11 +163,6 @@ export default {
                         {
                             index: '/demo/dialog',
                             title: '拖拽弹框'
-                        },
-                        {
-                            icon: 'el-icon-lx-global',
-                            index: '/demo/i18n',
-                            title: '国际化功能'
                         },
                         {
                             icon: 'el-icon-lx-warn',

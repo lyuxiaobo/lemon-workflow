@@ -1,9 +1,5 @@
 package com.lemon.mobile.util;
 
-/**
- * Created by ChenboCui on 2018/6/4.
- */
-
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
@@ -14,9 +10,10 @@ import android.widget.TextView;
 
 import com.lemon.mobile.R;
 
-
 /**
- * 加载提醒对话框
+ * 加载对话框
+ * @author Lyubo
+ * @date 2021/8/14
  */
 public class CbLoadingDialog extends ProgressDialog
 {
@@ -30,10 +27,6 @@ public class CbLoadingDialog extends ProgressDialog
         super(context, R.style.CbLoadingDialog);
     }
 
-    public CbLoadingDialog(Context context, int theme)
-    {
-        super(context, R.style.CbLoadingDialog);
-    }
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -43,7 +36,9 @@ public class CbLoadingDialog extends ProgressDialog
     private void init(Context context)
     {
         setCancelable(true);
-        setCanceledOnTouchOutside(false);//设置不可取消，点击其他区域不能取消
+
+        //设置不可取消，点击其他区域不能取消
+        setCanceledOnTouchOutside(false);
 
         setContentView(R.layout.c_progress_dialog);
         WindowManager.LayoutParams params = getWindow().getAttributes();
@@ -51,22 +46,17 @@ public class CbLoadingDialog extends ProgressDialog
         params.height = WindowManager.LayoutParams.WRAP_CONTENT;
         getWindow().setAttributes(params);
         getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-        tvMessage = (TextView) findViewById(R.id.progress_dialog_message);
+        tvMessage = findViewById(R.id.progress_dialog_message);
         tvMessage.setText(message);
         if (TextUtils.isEmpty(message)){tvMessage.setVisibility(View.GONE);}
     }
 
+    @Override
     public void setMessage(CharSequence message) {
         this.message = message;
         if (tvMessage != null) {
             tvMessage.setText(message);
         }
-    }
-
-    @Override
-    public void show()
-    {
-        super.show();
     }
 
     public void Cancelable(boolean b){

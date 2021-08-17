@@ -3,16 +3,16 @@
         <div class="crumbs">
             <el-breadcrumb separator="/">
                 <el-breadcrumb-item>
-                    <i class="el-icon-lx-cascades"></i> 模型管理
+                    <i class="el-icon-lx-cascades"></i> 表单模型管理
                 </el-breadcrumb-item>
             </el-breadcrumb>
         </div>
         <div class="container">
             <div class="handle-box">
-                <el-input prefix-icon="el-icon-search" v-model="queryConditions.username" placeholder="模型名称"
+                <el-input prefix-icon="el-icon-search" v-model="queryConditions.username" placeholder="表单名称"
                           class="handle-input mr10" clearable></el-input>
                 <el-button type="primary" icon="el-icon-search" @click="handleSearch">搜索</el-button>
-                <el-button type="primary" icon="el-icon-add" @click="handleAdd">添加模型</el-button>
+                <el-button type="primary" icon="el-icon-add" @click="handleAdd">添加表单</el-button>
             </div>
             <el-table
                 :data="tableData"
@@ -21,7 +21,7 @@
                 header-cell-class-name="table-header"
             >
                 <!--                <el-table-column type="selection" width="55" align="center"></el-table-column>-->
-                <el-table-column prop="name" label="模型名称" align="center" width="300"></el-table-column>
+                <el-table-column prop="name" label="表单名称" align="center" width="300"></el-table-column>
                 <el-table-column prop="category" label="目录" align="center" sortable></el-table-column>
                 <el-table-column prop="version" label="版本" align="center" sortable></el-table-column>
                 <el-table-column prop="createTime" label="创建时间" align="center" sortable
@@ -65,10 +65,10 @@
                 ></el-pagination>
             </div>
 
-            <el-dialog title="添加模型" :visible.sync="formVisible" width="35%">
+            <el-dialog title="添加表单" :visible.sync="formVisible" width="35%">
                 <el-form :model="modelRequestBody" :rules="rules" label-position="top" ref="modelForm">
                     <el-form-item
-                        label="模型名称"
+                        label="表单名称"
                         prop="name"
                     >
                         <el-input v-model="modelRequestBody.name"></el-input>
@@ -76,8 +76,9 @@
                     <el-form-item
                         label="模型类别"
                         prop="category"
+
                     >
-                        <el-input v-model="modelRequestBody.category"></el-input>
+                        <el-input v-model="modelRequestBody.category" disabled></el-input>
                     </el-form-item>
                 </el-form>
                 <span slot="footer" class="dialog-footer">
@@ -94,10 +95,10 @@ import { addModel, createDeployment, deleteModel, getAllModels, getTheEditorSour
 import { formatDate } from '@/utils/formatDate';
 
 /**
- * 部署列表
+ * 表单模型列表
  */
 export default {
-    name: 'Models',
+    name: 'FormModels',
     data() {
         return {
             query: {
@@ -118,7 +119,7 @@ export default {
             modelRequestBody: {
                 name: 'Model name',
                 key: 'Model key',
-                category: 'Model category',
+                category: 'form',
                 version: 1,
                 metaInfo: 'Model metainfo',
                 tenantId: 'tenant'
@@ -126,7 +127,7 @@ export default {
 // 表单的校验规则
             rules: {
                 name: [
-                    { required: true, message: '请输入名称', trigger: 'blur' }
+                    { required: true, message: '请输入表单名称', trigger: 'blur' }
                 ],
                 category: [
                     { required: true, message: '请输入类别', trigger: 'blur' }
@@ -149,7 +150,7 @@ export default {
         },
         // 获取数据
         getData() {
-            getAllModels(this.query.pageSize, this.query.start).then(res => {
+            getAllModels(this.query.pageSize, this.query.start, "form").then(res => {
                 this.tableData = res.data;
                 this.pageTotal = res.total;
             }).catch(error => {
@@ -184,7 +185,7 @@ export default {
         },
         editModel(row) {
             this.$router.push({
-                path: '/workflow/design',
+                path: '/form/design',
                 query: {
                     modelId: row.id,
                     modelName: row.name,

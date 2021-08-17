@@ -12,6 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * SharedPreferences工具类
+ * @author Lyubo
+ * @date 2021/8/14
+ */
 public class SPUtils {
 
     /**

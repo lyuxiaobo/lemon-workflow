@@ -70,6 +70,9 @@
                         <el-header class="btn-bar" style="height: 45px;">
                             <slot name="action">
                             </slot>
+                            <el-button type="text" size="medium" icon="el-icon-document"
+                                       @click="handleSaveJson">保存表单
+                            </el-button>
                             <el-button v-if="upload" type="text" size="medium" icon="el-icon-upload2"
                                        @click="handleUpload">{{ $t('fm.actions.import') }}
                             </el-button>
@@ -205,6 +208,7 @@ import { basicComponents, layoutComponents, advanceComponents } from './componen
 
 
 import generateCode from './generateCode.js';
+import { getTheEditorSource, setTheEditorSource } from '@/api';
 
 export default {
     name: 'fm-making-form',
@@ -304,6 +308,7 @@ export default {
     },
     mounted() {
         this._loadComponents();
+        this.handleSourceJson();
     },
     methods: {
         _loadComponents() {
@@ -403,6 +408,35 @@ export default {
                 this.$message.error(e.message);
                 this.$refs.uploadJson.end();
             }
+        },
+        handleSaveJson() {
+            let file = new File([JSON.stringify(this.widgetForm)], 'form.json');
+            setTheEditorSource(this.$route.query.modelId, file);
+            this.$message({
+                message: '保存成功！',
+                type: 'success'
+            });
+        },
+        handleSourceJson() {
+            // 判断是否含有流程文件；若有，则从服务器获取，若没有，则直接基于模板创建。
+            if (this.$route.query.isHaveSource === "true") {
+                getTheEditorSource(this.$route.query.modelId).then(res => {
+                    try {
+                        this.setJSON(JSON.parse(res.toString()));
+                    } catch (e) {
+                        this.$message.error(e.message);
+                        this.$refs.uploadJson.end();
+                    }
+                });
+            } else {
+                try {
+                    this.setJSON(JSON.parse(JSON.stringify(this.widgetForm)));
+                } catch (e) {
+                    this.$message.error(e.message);
+                    this.$refs.uploadJson.end();
+                }
+            }
+
         },
         handleClear() {
             this.widgetForm = {

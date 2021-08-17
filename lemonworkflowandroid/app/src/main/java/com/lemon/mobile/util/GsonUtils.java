@@ -7,6 +7,11 @@ import com.google.gson.JsonSyntaxException;
 import java.lang.reflect.Type;
 import java.util.List;
 
+/**
+ * Gson工具类
+ * @author Lyubo
+ * @date 2021/8/14
+ */
 public final class GsonUtils {
 
     static volatile Gson gson;

@@ -14,6 +14,8 @@ import com.lemon.mobile.util.SPUtils;
 
 /**
  * 闪屏页
+ * @author Lyubo
+ * @date 2021/8/14
  */
 public class SplashActivity extends BaseActivity {
     private static final String TAG = "SplashActivity";
@@ -28,14 +30,12 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
         cv = findViewById(R.id.cv);
         tvCountTime = findViewById(R.id.tvCountTime);
     }
 
     @Override
     protected void initList() {
-
     }
 
     @Override
@@ -45,7 +45,7 @@ public class SplashActivity extends BaseActivity {
 
     private void startSplash() {
 
-        countDownTimer = new CountDownTimer(3 * 1000, 1000) {
+        countDownTimer = new CountDownTimer(1 * 1000, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
                 tvCountTime.setText(millisUntilFinished / 1000 + "s");
@@ -69,11 +69,10 @@ public class SplashActivity extends BaseActivity {
     public void isLogin() {
         if (SPUtils.get(mContext, "username", "").equals("")) {
             startActivity(new Intent(SplashActivity.this, LoginActivity.class));
-            finish();
-        }else {
+        } else {
             startActivity(new Intent(SplashActivity.this, MainActivity.class));
-            finish();
         }
+        finish();
     }
 
     @Override

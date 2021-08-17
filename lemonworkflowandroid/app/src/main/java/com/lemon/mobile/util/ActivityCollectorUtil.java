@@ -7,7 +7,7 @@ import java.util.ArrayList;
 /**
  * @author Lyubo
  * @date 2021/8/11
- * Description:
+ * Description: Activity集合类
  */
 public class ActivityCollectorUtil {
     public static ArrayList<Activity> mActivityList = new ArrayList<Activity>();

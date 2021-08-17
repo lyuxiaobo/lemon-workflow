@@ -22,7 +22,11 @@ import com.lzy.okgo.model.HttpParams;
 
 import java.util.List;
 
-
+ /**
+  * 基础Activity类
+  * @author Lyubo
+  * @date 2021/8/14
+  */
  public abstract class BaseActivity extends AppCompatActivity {
      private static final String TAG = "BaseActivity";
     public Context mContext;
@@ -69,8 +73,6 @@ import java.util.List;
         });
         ((TextView) findViewById(R.id.tvTitleBar)).setText(title == null ? "" : title);
     }
-
-
 
      public void okGetRequest(String url) {
          okGetRequest(null, url, null);
@@ -119,7 +121,9 @@ import java.util.List;
              @Override
              public void onFinish() {
                  super.onFinish();
-                 if (isDialog) dismissProgressDialog();
+                 if (isDialog) {
+                     dismissProgressDialog();
+                 }
                  okResponseFinish(finalWith);
              }
          });
@@ -304,7 +308,6 @@ import java.util.List;
         super.onDestroy();
         ActivityCollectorUtil.removeActivity(this);
         if (mImmersionBar != null) {
-
             //必须调用该方法，防止内存泄漏，不调用该方法，如果界面bar发生改变，在不关闭app的情况下，退出此界面再进入将记忆最后一次bar改变的状态
         }
     }
