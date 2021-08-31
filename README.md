@@ -2,7 +2,9 @@
 
 ## 项目简介
 
-:lemon:lemon-workflow是一个基于Flowable(V6)引擎的BPM平台，采用前后端分离架构，已适配Android移动端。目前已经集成了流程设计、工作流管理、统计分析等功能，只限学习交流。
+lemon-workflow是一个基于Flowable(V6)引擎的BPM平台，采用前后端分离架构，已适配Android移动端。目前已经集成了流程设计、工作流管理、统计分析等功能。
+
+[点我在线演示](http://39.107.182.111/bpm)
 
 技术栈如下：
 
@@ -16,7 +18,7 @@
 
 <img src="./img/web_screen_1.png" style="zoom:50%;" />
 <img src="./img/web_screen_2.png" style="zoom:50%;" />
-<img src="./img/android_screen_1.png" style="zoom:10%;" /><img src="./img/android_screen_2.png" style="zoom:10%;" />
+<img src="./img/android_screen_1.png" style="zoom: 50%;" /><img  src="./img/android_screen_2.png" style="zoom: 50%;" />
 
 
 
